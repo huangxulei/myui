@@ -34,21 +34,22 @@ class MainMenu extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border(
                 left: BorderSide(
+                  //左边框颜色和宽度 当前点击的
                   color: controller.active.value == 'chats'
-                      ? Color.fromARGB(255, 119, 80, 169)
+                      ? const Color.fromARGB(255, 119, 80, 169)
                       : Colors.transparent,
                   width: 6, // 设置边框宽度
                 ),
               ),
               color: controller.active.value == 'chats'
-                  ? Color.fromARGB(100, 64, 46, 88)
+                  ? const Color.fromARGB(100, 64, 46, 88)
                   : Colors.transparent,
             ),
             width: double.infinity,
             height: 50,
             child: MaterialButton(
               onPressed: () {
-                controller.open('chats');
+                controller.open('chats'); //点击执行
               },
               child: Icon(
                 MyIcons.chat,
@@ -130,5 +131,5 @@ class MainMenu extends StatelessWidget {
 
 class MainMenuController extends GetxController {
   var active = 'chats'.obs;
-  void open(String menu) => {active.value = menu};
+  void open(String menu) => {active.value = menu}; //改变当前tab
 }
