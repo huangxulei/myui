@@ -2,8 +2,10 @@ import 'dart:io';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart';
+import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:myui/component/MainMenu.dart';
+import 'package:myui/components/MainMenu.dart';
+import 'package:myui/views/ChatsView.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -103,15 +105,81 @@ class LeftSide extends StatelessWidget {
 }
 
 class RightSide extends StatelessWidget {
-  const RightSide({super.key});
-
+  final MainMenuController controller = Get.put(MainMenuController());
   @override
   Widget build(BuildContext context) {
     return Expanded(
         child: Stack(alignment: AlignmentDirectional.topStart, children: [
       Container(
-        color: Colors.transparent,
-      )
+          color: Colors.transparent,
+          child: Obx(() {
+            if (controller.active.value == 'chats') {
+              return ChatsView();
+            }
+
+            return Container();
+          })),
+      Column(
+        children: [
+          WindowTitleBarBox(
+            child: Row(
+              children: [
+                Expanded(
+                  child: MoveWindow(),
+                ),
+                const WindowButtons()
+              ],
+            ),
+          ),
+        ],
+      ),
     ]));
+  }
+}
+
+final buttonColors = WindowButtonColors(
+    iconNormal: Colors.black,
+    mouseOver: const Color.fromARGB(255, 224, 224, 224),
+    mouseDown: const Color.fromARGB(255, 202, 202, 202),
+    iconMouseOver: Colors.black,
+    iconMouseDown: Colors.black);
+
+final closeButtonColors = WindowButtonColors(
+    mouseOver: Colors.red,
+    mouseDown: const Color.fromARGB(255, 206, 54, 43),
+    iconNormal: Colors.black,
+    iconMouseOver: Colors.black);
+
+class WindowButtons extends StatefulWidget {
+  const WindowButtons({super.key});
+
+  @override
+  State<WindowButtons> createState() => _WindowButtonsState();
+}
+
+class _WindowButtonsState extends State<WindowButtons> {
+  void maximizeOrRestore() async {
+    setState(() {
+      appWindow.maximizeOrRestore();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        MinimizeWindowButton(colors: buttonColors),
+        appWindow.isMaximized
+            ? RestoreWindowButton(
+                colors: buttonColors,
+                onPressed: maximizeOrRestore,
+              )
+            : MaximizeWindowButton(
+                colors: buttonColors,
+                onPressed: maximizeOrRestore,
+              ),
+        CloseWindowButton(colors: closeButtonColors),
+      ],
+    );
   }
 }

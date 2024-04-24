@@ -3,7 +3,7 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-import 'package:myui/component/Avatar.dart';
+import 'package:myui/components/Avatar.dart';
 import 'package:myui/controller/SettingController.dart';
 import 'package:myui/utils/MyIcons.dart';
 
