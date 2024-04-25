@@ -31,20 +31,6 @@ class MainMenu extends StatelessWidget {
         ),
         Obx(
           () => Container(
-            decoration: BoxDecoration(
-              border: Border(
-                left: BorderSide(
-                  //左边框颜色和宽度 当前点击的
-                  color: controller.active.value == 'chats'
-                      ? const Color.fromARGB(255, 119, 80, 169)
-                      : Colors.transparent,
-                  width: 6, // 设置边框宽度
-                ),
-              ),
-              color: controller.active.value == 'chats'
-                  ? const Color.fromARGB(100, 64, 46, 88)
-                  : Colors.transparent,
-            ),
             width: double.infinity,
             height: 50,
             child: MaterialButton(
@@ -53,8 +39,9 @@ class MainMenu extends StatelessWidget {
               },
               child: Icon(
                 MyIcons.chat,
+                size: 20.0,
                 color: controller.active.value == 'chats'
-                    ? Colors.white
+                    ? Color.fromARGB(255, 16, 182, 74)
                     : textColor,
               ),
             ),
@@ -62,19 +49,6 @@ class MainMenu extends StatelessWidget {
         ),
         Obx(
           () => Container(
-            decoration: BoxDecoration(
-              border: Border(
-                left: BorderSide(
-                  color: controller.active.value == 'github'
-                      ? Color.fromARGB(255, 119, 80, 169)
-                      : Colors.transparent,
-                  width: 6, // 设置边框宽度
-                ),
-              ),
-              color: controller.active.value == 'github'
-                  ? Color.fromARGB(100, 64, 46, 88)
-                  : Colors.transparent,
-            ),
             width: double.infinity,
             height: 50,
             child: MaterialButton(
@@ -83,8 +57,9 @@ class MainMenu extends StatelessWidget {
               },
               child: Icon(
                 MyIcons.github,
+                size: 20.0,
                 color: controller.active.value == 'github'
-                    ? Colors.white
+                    ? Color.fromARGB(255, 16, 182, 74)
                     : textColor,
               ),
             ),
@@ -93,19 +68,6 @@ class MainMenu extends StatelessWidget {
         Expanded(child: Container()),
         Obx(
           () => Container(
-            decoration: BoxDecoration(
-              border: Border(
-                left: BorderSide(
-                  color: controller.active.value == 'setting'
-                      ? Color.fromARGB(255, 119, 80, 169)
-                      : Colors.transparent,
-                  width: 6, // 设置边框宽度
-                ),
-              ),
-              color: controller.active.value == 'setting'
-                  ? Color.fromARGB(100, 64, 46, 88)
-                  : Colors.transparent,
-            ),
             width: double.infinity,
             height: 50,
             child: MaterialButton(
@@ -114,8 +76,9 @@ class MainMenu extends StatelessWidget {
               },
               child: Icon(
                 Icons.settings,
+                size: 20.0,
                 color: controller.active.value == 'setting'
-                    ? Colors.white
+                    ? Color.fromARGB(255, 16, 182, 74)
                     : textColor,
               ),
             ),

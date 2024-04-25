@@ -3,7 +3,6 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:myui/components/MainMenu.dart';
 import 'package:myui/views/ChatsView.dart';
 
@@ -49,7 +48,7 @@ Future<void> main() async {
   appWindow.show();
   doWhenWindowReady(() {
     final win = appWindow;
-    const initialSize = Size(900, 600);
+    const initialSize = Size(1080, 670);
     win.minSize = initialSize;
     win.size = appWindow.size;
     win.alignment = Alignment.center;
@@ -82,7 +81,7 @@ class LeftSide extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        width: 65,
+        width: 55,
         child: Container(
             // 渐变颜色
             decoration: const BoxDecoration(
@@ -90,8 +89,8 @@ class LeftSide extends StatelessWidget {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Color.fromARGB(170, 53, 36, 77),
-                  Color.fromARGB(170, 53, 36, 77)
+                  Color.fromARGB(170, 45, 43, 46),
+                  Color.fromARGB(170, 50, 49, 49)
                 ], // 这里设置您想要的颜色
               ),
             ),
