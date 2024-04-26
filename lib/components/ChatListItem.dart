@@ -16,8 +16,8 @@ class ChatListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = const Color.fromARGB(255, 176, 155, 206);
-    Color selectColor = const Color.fromARGB(255, 103, 51, 145);
+    Color textColor = Colors.black54;
+    Color selectColor = Colors.grey;
 
     return Listener(
       onPointerDown: (details) {
@@ -52,7 +52,7 @@ class ChatListItem extends StatelessWidget {
                       const CircleAvatar(
                         child: Icon(
                           Icons.person,
-                          color: Colors.white,
+                          color: Colors.black12,
                         ),
                       ),
                     const SizedBox(
@@ -66,7 +66,7 @@ class ChatListItem extends StatelessWidget {
                             item.name,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
-                                color: Colors.white,
+                                color: Colors.black87,
                                 fontWeight: FontWeight.w500,
                                 fontSize: 13),
                           ),
